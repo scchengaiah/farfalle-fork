@@ -16,9 +16,11 @@ WORKDIR /workspace
 # Copy dependency files to avoid cache invalidations
 COPY pyproject.toml poetry.lock ./
 
-COPY src/backend/ src/backend/
-
+# Install dependencies
 RUN pip install --no-cache-dir poetry && poetry install
+
+# Copy the rest of the application code
+COPY src/backend/ src/backend/
 
 EXPOSE 8000
 

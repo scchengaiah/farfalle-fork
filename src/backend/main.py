@@ -30,6 +30,11 @@ from backend.schemas import (
 from backend.utils import strtobool
 from backend.validators import validate_model
 
+import litellm
+
+# Set verbose mode for litellm
+litellm.set_verbose = False
+
 load_dotenv()
 
 
